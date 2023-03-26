@@ -1,6 +1,6 @@
 {
-  "name": "vue2-ui",
-  "version": "0.1.0",
+  "name": "vue-starry-sky-ui",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -55,5 +55,21 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "description": "- 这是我的第一个Vue2的ui项目，自己随便写写，增进一下vue方面的技术，如果对项目有任何的意见和建议，欢迎在Isseus留下您的意见和建议，如果喜欢本项目烦请点亮star",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaiJingSama/vue2-ui.git"
+  },
+  "keywords": [
+    "vue2",
+    "ui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BaiJingSama/vue2-ui/issues"
+  },
+  "homepage": "https://github.com/BaiJingSama/vue2-ui#readme"
 }
