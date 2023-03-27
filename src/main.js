@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import Icon from '@/components/Icon.vue';
-import Button from './components/button.vue'
+import Icon from './components/Icon.vue';
+import Button from './components/Button.vue'
 
-Vue.component('button',Button)
+Vue.component('Button',Button)
 Vue.component('Icon', Icon);
 Vue.config.productionTip = false
 

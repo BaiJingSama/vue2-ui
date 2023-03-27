@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <s-button>我是button</s-button>
+    <Button :icon="settings" :iconPosition="'left'">我是button</Button>
+    <Button :icon="settings" :iconPosition="'right'">我是button</Button>
+    <Button :icon="settings">我是button</Button>
   </div>
 </template>
 
@@ -8,6 +10,11 @@
 
 export default {
   name: 'App',
+  data() {
+    return {
+      settings: 'settings'
+    }
+  },
 }
 </script>
 
@@ -20,11 +27,15 @@ body{
 }
 
 #app {
+  margin-top: 20px;
+  margin-left: 20px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
+  
 }
 
 </style>
