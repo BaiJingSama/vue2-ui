@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Button :icon="settings" :iconPosition="'left'">我是button</Button>
+    <Button >我是button</Button>
     <Button :icon="settings" :iconPosition="'right'">我是button</Button>
-    <Button :icon="settings">我是button</Button>
+    <Button :icon="settings" :iconPosition="'left'">我是button</Button>
   </div>
 </template>
 

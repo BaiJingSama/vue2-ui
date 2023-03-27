@@ -11,7 +11,18 @@
 
 <script>
 export default {
-  props: ["icon", "iconPosition"],
+  // props: ["icon", "iconPosition"],
+  props:{
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: 'left',
+      // 属性检查器，返回false时vue会报错，用于控制用户传的非预期的值
+      validator(value){
+        return value === 'left' || value === 'right'
+      }
+    }
+  }
 };
 </script>
 
