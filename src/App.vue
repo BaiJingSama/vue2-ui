@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Button >我是button</Button>
-    <Button :icon="settings" :iconPosition="'right'">我是button</Button>
-    <Button :icon="settings" :iconPosition="'left'">我是button</Button>
+    <Button :icon="icons[0]" :iconPosition="'right'">我是button</Button>
+    <Button :icon="icons[1]" :iconPosition="'left'">我是button</Button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'App',
   data() {
     return {
-      settings: 'settings'
+      icons:['settings','loading']
     }
   },
 }

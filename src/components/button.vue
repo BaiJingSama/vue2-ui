@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="s-button" :class="{ [`icon-${iconPosition}`]: true }">
-      <Icon v-if="icon" :name="icon" />
+      <Icon v-if="icon" :name="icon" :class="{loading : icon === 'loading' ? true : false}"/>
       <div class="content">
         <slot></slot>
       </div>
@@ -28,6 +28,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/style/vars.scss";
+
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
 .s-button {
   font-size: $font-size;
   height: $button-height;
@@ -61,6 +70,10 @@ export default {
   &.icon-right {
     > .icon { order: 2; margin-right: 0em;margin-left: .3em;}
     > .content{order: 1}
+  }
+
+  .loading{
+    animation: spin 1.5s infinite linear;
   }
 }
 </style>
