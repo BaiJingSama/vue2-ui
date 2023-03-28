@@ -1,7 +1,8 @@
 <template>
   <div>
-    <button class="s-button" :class="{ [`icon-${iconPosition}`]: true }">
-      <Icon v-if="icon" :name="icon" :class="{loading : icon === 'loading' ? true : false}"/>
+    <button class="s-button" :class="{ [`icon-${iconPosition}`]: true }" @click="$emit('click')">
+      <Icon v-if="icon && !loading" :name="icon"/>
+      <Icon v-if="loading" name="loading" class="loading"/>
       <div class="content">
         <slot></slot>
       </div>
@@ -14,6 +15,10 @@ export default {
   // props: ["icon", "iconPosition"],
   props:{
     icon: {},
+    loading:{
+      type:Boolean,
+      default: false
+    },
     iconPosition: {
       type: String,
       default: 'left',
