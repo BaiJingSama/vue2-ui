@@ -57,7 +57,7 @@
     ]
   },
   "description": "- 这是我的第一个Vue2的ui项目，自己随便写写，增进一下vue方面的技术，如果对项目有任何的意见和建议，欢迎在Isseus留下您的意见和建议，如果喜欢本项目烦请点亮star",
-  "main": "babel.config.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BaiJingSama/vue2-ui.git"
