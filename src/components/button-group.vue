@@ -1,15 +1,21 @@
 <template>
-  <div class="button-group">
+  <div v-if="!error" class="button-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
+    data(){
+      return {
+        error: false
+      }
+    },
     mounted() {
       for(let node of this.$el.children){
         if(node.nodeName.toLowerCase() !== 'button'){
           console.warn('button-group组件预期的子元素为<Button>')
+          this.error = true
         }
       }
     },
