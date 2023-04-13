@@ -2,26 +2,36 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-03-30 18:48:39
+ * @LastEditTime: 2023-04-13 22:18:15
  * @Description: 
 -->
 <template>
   <div id="app">
-    <Button :icon="icons[0]">我是button</Button>
-    <Button :icon="icons[0]" :iconPosition="'right'">我是button</Button>
-    <Button
-      class="margin-left" 
-      :icon="icons[0]"
-      :loading="loading"
-      :iconPosition="'left'"
-      @click="loading = !loading"
-      >我是button
-    </Button>
-    <Button-group class="margin-left">
-      <Button icon="left">上一页</Button>
-      <Button>更多</Button>
-      <Button icon="right">下一页</Button>
-    </Button-group>
+    <div class="box">
+      <g-input value="张三" />
+      <g-input disabled value="李四" />
+      <g-input readonly value="王五" />
+    </div>
+    <div class="box">
+      <g-input value="我是error" error="不能有英文" />
+    </div>
+    <div class="box">
+      <Button :icon="icons[0]">我是button</Button>
+      <Button :icon="icons[0]" :iconPosition="'right'">我是button</Button>
+      <Button
+        class="margin-left"
+        :icon="icons[0]"
+        :loading="loading"
+        :iconPosition="'left'"
+        @click="loading = !loading"
+        >我是button
+      </Button>
+      <Button-group class="margin-left">
+        <Button icon="left">上一页</Button>
+        <Button>更多</Button>
+        <Button icon="right">下一页</Button>
+      </Button-group>
+    </div>
   </div>
 </template>
 
@@ -58,12 +68,16 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
-  display: flex;
+  /* display: flex; */
 }
 
-.margin-left{
+.margin-left {
   margin-left: 10px;
+}
+
+.box{
+  margin: 20px
 }
 </style>
