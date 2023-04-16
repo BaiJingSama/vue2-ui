@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-04-13 22:18:15
+ * @LastEditTime: 2023-04-16 11:31:46
  * @Description: 
 -->
 <template>
@@ -14,6 +14,9 @@
     </div>
     <div class="box">
       <g-input value="我是error" error="不能有英文" />
+    </div>
+    <div class="box">
+      <g-input value="赵四" @change="inputChange"/>
     </div>
     <div class="box">
       <Button :icon="icons[0]">我是button</Button>
@@ -50,6 +53,9 @@ export default {
       this.icons[1] = "";
       console.log(this.icons);
     },
+    inputChange(e){
+      console.log(e.target.value);
+    }
   },
 };
 </script>

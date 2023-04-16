@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper" :class="{ error }">
-    <input :value="value" type="text" :disabled="disabled" :readonly="readonly" />
+    <input :value="value" type="text" :disabled="disabled" :readonly="readonly" 
+      @change="$emit('change',$event)"
+      @input="$emit('input',$event)"
+      @focus="$emit('focus',$event)"
+      @blur="$emit('blur',$event)"
+    />
     <template  v-if="error">
       <Icon name="settings" class="icon-error"/>
       <span class="error-message">{{ error }}</span>
@@ -8,27 +13,27 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    value: {
-      type: String,
+  <script>
+  export default {
+    props: {
+      value: {
+        type: String,
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      readonly: {
+        type: Boolean,
+        default: false,
+      },
+      error: {
+        type: String,
+      },
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
-    error: {
-      type: String,
-    },
-  },
-  name: "input",
-};
-</script>
+    name: "input",
+  };
+  </script>
 
 <style lang="scss" scoped>
 @import "../assets/style/vars.scss";
