@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-04-13 22:04:09
+ * @LastEditTime: 2023-04-16 12:44:02
  * @Description: 入口文件
  */
 import Vue from 'vue'
@@ -15,6 +15,7 @@ import Input from './components/g-input.vue'
 import { expect} from 'chai';
 import chai from 'chai'
 import spies from 'chai-spies'
+import {inputTestProps,inputTestEvent} from '../test/input.test'
 
 Vue.component('Button', Button)
 Vue.component('Icon', Icon);
@@ -29,25 +30,9 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-console.log(expect);
-
+inputTestProps()
+inputTestEvent()
 // 单元测试
-// icon测试
-{
-  const Constructor = Vue.extend(Button)
-  const button = new Constructor({
-    propsData: {
-      icon: 'settings'
-    }
-  })
-  button.$mount()
-  const useElement = button.$el.querySelector('use')
-  const href = useElement.getAttribute('xlink:href')
-  expect(href).to.eq('#settings')
-  button.$el.remove()
-  button.$destroy()
-  // 挂载后删除这个元素
-}
 // click测试
 {
   const Constructor = Vue.extend(Button)
