@@ -7,7 +7,7 @@ import spies from 'chai-spies'
 chai.use(spies)
 
 // props测试
-export function inputTestProps(){
+export function inputTestProps() {
   const Constructor = Vue.extend(Input)
 
   const gInput = new Constructor({
@@ -29,20 +29,37 @@ export function inputTestProps(){
   // 挂载后删除这个元素
 }
 
-export function inputTestEvent(){
+export function inputTestEvent() {
   const Constructor = Vue.extend(Input)
   let vm
-  vm = new Constructor({}).$mount()
-  const callback = chai.spy(()=>{})
-  vm.$on('change',callback)
-  // 触发input的change 事件
-  let event = new Event('change')
-  let inputElement = vm.$el.querySelector('input')
-  inputElement.dispatchEvent(event)
+  function inputChange() {
+    vm = new Constructor({}).$mount()
+    const callback = chai.spy(() => { })
+    vm.$on('change', callback)
+    // 触发input的change 事件
+    let event = new Event('change')
+    let inputElement = vm.$el.querySelector('input')
+    inputElement.dispatchEvent(event)
 
-  expect(callback).to.have.been.called
+    expect(callback).to.have.been.called
 
-  vm.$destroy()
+    vm.$destroy()
+  }
+  function inputEvent(){
+    vm = new Constructor({}).$mount()
+    const callback = chai.spy(() => {})
+    vm.$on('change', callback)
+    // 触发input的change 事件
+    let event = new Event('input')
+    let inputElement = vm.$el.querySelector('input')
+    inputElement.dispatchEvent(event)
+    expect(callback).to.have.been.called
+
+    vm.$destroy()
+  }
+
+  inputEvent()
+  inputChange()
 }
 
 
