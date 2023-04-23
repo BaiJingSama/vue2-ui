@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-04-16 12:44:02
+ * @LastEditTime: 2023-04-23 20:51:41
  * @Description: 入口文件
  */
 import Vue from 'vue'
@@ -16,11 +16,15 @@ import { expect} from 'chai';
 import chai from 'chai'
 import spies from 'chai-spies'
 import {inputTestProps,inputTestEvent} from '../test/input.test'
+import Row from './components/row.vue'
+import Col from './components/col.vue'
 
 Vue.component('Button', Button)
 Vue.component('Icon', Icon);
 Vue.component('Button-group', ButtonGroup)
 Vue.component('g-input',Input)
+Vue.component('g-row',Row)
+Vue.component('g-col', Col)
 Vue.config.productionTip = false
 
 chai.use(spies)

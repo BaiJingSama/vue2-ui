@@ -2,11 +2,20 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-04-18 20:19:22
+ * @LastEditTime: 2023-04-23 21:16:11
  * @Description: 
 -->
 <template>
   <div id="app">
+    <g-row>
+      <g-col></g-col>
+      <g-col></g-col>
+    </g-row>
+    <g-row>
+      <g-col :span="10"></g-col>
+      <g-col :span="14"></g-col>
+    </g-row>
+    <hr>
     <div class="box">
       <g-input v-model="message"></g-input>
       <p>{{ message }}</p>
@@ -91,4 +100,6 @@ body {
 .box {
   margin: 20px;
 }
+
+
 </style>
