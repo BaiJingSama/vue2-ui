@@ -1,3 +1,10 @@
+<!--
+ * @Author: baijingsama 1303802862@qq.com
+ * @Date: 2023-03-24 00:30:12
+ * @LastEditors: baijingsama 1303802862@qq.com
+ * @LastEditTime: 2023-03-29 21:45:21
+ * @Description: 
+-->
 <template>
   <svg class="icon">
     <use :xlink:href="'#'+name"/>
