@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-04-23 20:51:41
+ * @LastEditTime: 2023-05-04 22:50:07
  * @Description: 入口文件
  */
 import Vue from 'vue'
@@ -18,6 +18,11 @@ import spies from 'chai-spies'
 import {inputTestProps,inputTestEvent} from '../test/input.test'
 import Row from './components/row.vue'
 import Col from './components/col.vue'
+import Layout from './components/g-layout.vue'
+import Header from './components/g-header.vue'
+import Footer from './components/g-footer.vue'
+import Content from './components/g-content.vue'
+import Sider from './components/g-sider.vue'
 
 Vue.component('Button', Button)
 Vue.component('Icon', Icon);
@@ -25,6 +30,11 @@ Vue.component('Button-group', ButtonGroup)
 Vue.component('g-input',Input)
 Vue.component('g-row',Row)
 Vue.component('g-col', Col)
+Vue.component('g-layout', Layout)
+Vue.component('g-header', Header)
+Vue.component('g-footer', Footer)
+Vue.component('g-content', Content)
+Vue.component('g-sider', Sider)
 Vue.config.productionTip = false
 
 chai.use(spies)

@@ -2,15 +2,25 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-04-29 12:20:09
+ * @LastEditTime: 2023-05-05 22:40:24
  * @Description: 
 -->
 <template>
   <div id="app">
-    <g-row :gutter="10">
+    <div class="box">
+      <g-layout style="height: 60vh">
+        <g-sider class="sider"></g-sider>
+        <g-layout>
+          <g-header class="header"></g-header>
+          <g-content class="content"></g-content>
+          <g-footer class="layout"></g-footer>
+        </g-layout>
+      </g-layout>
+    </div>
+    <!-- <g-row :gutter="10">
       <g-col :phone="{span:12}" :ipad="{span:1}" :narrowPc="{span:12}" :pc="{span:24}" :widePc="{span:1}" >1</g-col>
       <g-col :phone="{span:12}" :ipad="{span:24}" :narrowPc="{span:12}" :pc="{span:1}" :widePc="{span:24}">2</g-col>
-    </g-row>
+    </g-row> -->
     <!-- <g-row>
       <g-col :span="10"></g-col>
       <g-col :span="14"></g-col>
@@ -21,7 +31,7 @@
       <g-col :span="2" :offset="1"></g-col>
       <g-col :span="2" :offset="1"></g-col>
     </g-row> -->
-    <hr>
+    <hr />
     <div class="box">
       <g-input v-model="message"></g-input>
       <p>{{ message }}</p>
@@ -64,7 +74,7 @@ export default {
     return {
       icons: ["settings"],
       loading: false,
-      message: 'hi'
+      message: "hi",
     };
   },
   methods: {
@@ -107,5 +117,24 @@ body {
   margin: 20px;
 }
 
+.layout{
+  border: 1px solid gray;
+  min-height: 100px;
+}
+
+.sider{
+  background: #333;
+  width: 200px;
+}
+
+.header{
+  background: skyblue;
+  height: 100px;
+}
+
+.footer{
+  background: pink;
+  height: 50px;
+}
 
 </style>
