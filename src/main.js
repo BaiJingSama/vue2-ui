@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-04 22:50:07
+ * @LastEditTime: 2023-05-08 15:23:20
  * @Description: 入口文件
  */
 import Vue from 'vue'
@@ -23,6 +23,8 @@ import Header from './components/g-header.vue'
 import Footer from './components/g-footer.vue'
 import Content from './components/g-content.vue'
 import Sider from './components/g-sider.vue'
+import Toast from './components/g-toast.vue'
+import plugin from './plugin';
 
 Vue.component('Button', Button)
 Vue.component('Icon', Icon);
@@ -35,13 +37,17 @@ Vue.component('g-header', Header)
 Vue.component('g-footer', Footer)
 Vue.component('g-content', Content)
 Vue.component('g-sider', Sider)
+Vue.component('g-toast', Toast)
 Vue.config.productionTip = false
 
 chai.use(spies)
-
+Vue.use(plugin)
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  // created(){
+  //   this.$toast()
+  // }
 }).$mount('#app')
 
 inputTestProps()

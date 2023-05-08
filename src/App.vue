@@ -2,12 +2,16 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-05 22:40:24
+ * @LastEditTime: 2023-05-08 15:22:06
  * @Description: 
 -->
 <template>
   <div id="app">
-    <div class="box">
+
+  <div class="box">
+    <Button @click="showToast">出现toast</Button>
+  </div>
+<!--     <div class="box">
       <g-layout style="height: 60vh">
         <g-sider class="sider"></g-sider>
         <g-layout>
@@ -17,20 +21,36 @@
         </g-layout>
       </g-layout>
     </div>
-    <!-- <g-row :gutter="10">
-      <g-col :phone="{span:12}" :ipad="{span:1}" :narrowPc="{span:12}" :pc="{span:24}" :widePc="{span:1}" >1</g-col>
-      <g-col :phone="{span:12}" :ipad="{span:24}" :narrowPc="{span:12}" :pc="{span:1}" :widePc="{span:24}">2</g-col>
-    </g-row> -->
-    <!-- <g-row>
-      <g-col :span="10"></g-col>
-      <g-col :span="14"></g-col>
-    </g-row>
-    <g-row>
-      <g-col :span="2"></g-col>
-      <g-col :span="2" :offset="4"></g-col>
-      <g-col :span="2" :offset="1"></g-col>
-      <g-col :span="2" :offset="1"></g-col>
-    </g-row> -->
+    <div class="box">
+      <g-row :gutter="10">
+        <g-col
+          :phone="{ span: 12 }"
+          :ipad="{ span: 1 }"
+          :narrowPc="{ span: 12 }"
+          :pc="{ span: 24 }"
+          :widePc="{ span: 1 }"
+          >1</g-col
+        >
+        <g-col
+          :phone="{ span: 12 }"
+          :ipad="{ span: 24 }"
+          :narrowPc="{ span: 12 }"
+          :pc="{ span: 1 }"
+          :widePc="{ span: 24 }"
+          >2</g-col
+        >
+      </g-row>
+      <g-row>
+        <g-col :span="10"></g-col>
+        <g-col :span="14"></g-col>
+      </g-row>
+      <g-row>
+        <g-col :span="2"></g-col>
+        <g-col :span="2" :offset="4"></g-col>
+        <g-col :span="2" :offset="1"></g-col>
+        <g-col :span="2" :offset="1"></g-col>
+      </g-row>
+    </div>
     <hr />
     <div class="box">
       <g-input v-model="message"></g-input>
@@ -63,7 +83,8 @@
         <Button>更多</Button>
         <Button icon="right">下一页</Button>
       </Button-group>
-    </div>
+    </div> -->
+
   </div>
 </template>
 
@@ -86,6 +107,9 @@ export default {
     inputChange(e) {
       console.log(e.target.value);
     },
+    showToast(){
+      this.$toast('我是toast')
+    }
   },
 };
 </script>
@@ -117,7 +141,7 @@ body {
   margin: 20px;
 }
 
-.layout{
+/* .layout{
   border: 1px solid gray;
   min-height: 100px;
 }
@@ -135,6 +159,5 @@ body {
 .footer{
   background: pink;
   height: 50px;
-}
-
+} */
 </style>
