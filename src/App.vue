@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-08 15:22:06
+ * @LastEditTime: 2023-05-08 17:29:01
  * @Description: 
 -->
 <template>
@@ -108,7 +108,16 @@ export default {
       console.log(e.target.value);
     },
     showToast(){
-      this.$toast('我是toast')
+      this.$toast('我是toast'
+      ,{
+        closeButton:{
+          text: '关了',
+          callback(toast){
+            toast.log()
+          }
+        }
+      }
+      )
     }
   },
 };

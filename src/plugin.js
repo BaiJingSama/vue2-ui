@@ -2,10 +2,14 @@ import Toast from './components/g-toast'
 
 export default {
   install(Vue,options){
-    Vue.prototype.$toast = function(message){
+    Vue.prototype.$toast = function(message,toastOptions){
       // 拿到Toast实例
       let Constructor = Vue.extend(Toast)
-      let toast = new Constructor()
+      let toast = new Constructor({
+        propsData:{
+          closeButton: toastOptions ? toastOptions.closeButton : undefined
+        }
+      })
       // 给toast的slots绑定用户传入的参数
       toast.$slots.default = [message]
       // mount toast组件
