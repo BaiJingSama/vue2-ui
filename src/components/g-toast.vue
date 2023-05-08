@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-05-08 14:30:42
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-08 19:50:45
+ * @LastEditTime: 2023-05-08 20:11:19
  * @Description: toast组件
 -->
 
@@ -56,7 +56,8 @@ export default {
       }
     },
     updateStyles(){
-      if(this.closeButton){
+      if(this.closeButton && this.closeButton.text){
+        console.log(this.closeButton);
         this.$nextTick(()=>{
         this.$refs.line.style.height = 
           `${this.$refs.wrapper.getBoundingClientRect().height}px`

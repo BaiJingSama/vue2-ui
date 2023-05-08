@@ -7,7 +7,7 @@ export default {
       let Constructor = Vue.extend(Toast)
       let toast = new Constructor({
         propsData:{
-          closeButton: toastOptions ? toastOptions.closeButton : undefined,
+          closeButton: toastOptions.closeButton || undefined,
           enableHtml: toastOptions ? toastOptions.enableHtml : false
         }
       })
