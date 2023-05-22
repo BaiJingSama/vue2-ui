@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-05-08 14:30:42
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-22 19:56:16
+ * @LastEditTime: 2023-05-22 21:09:18
  * @Description: toast组件
 -->
 
@@ -81,6 +81,7 @@ export default {
     },
     close() {
       this.$el.remove();
+      this.$emit('close')
       this.$destroy();
     },
     log() {
@@ -101,7 +102,13 @@ $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.74);
 
+@keyframes fade-in{
+  0%{opacity: 0; transform: translateX(100%);}
+  100%{opacity: 1; transform: translateX(0%)}
+}
+
 .toast {
+  animation: fade-in 1s;
   /* border:1px solid red; */
   position: fixed;
   left: 50%;
