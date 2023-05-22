@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-22 19:55:52
+ * @LastEditTime: 2023-05-22 20:43:07
  * @Description: 
 -->
 <template>
@@ -108,10 +108,17 @@ export default {
       console.log(e.target.value);
     },
     showToast(){
-      this.$toast('该睡觉了'
+      this.$toast(`该睡觉了，现在已经
+      ${new Date().getFullYear()}年
+      ${new Date().getMonth()+1}月
+      ${new Date().getDate()}日
+      ${new Date().getHours()}:
+      ${new Date().getMinutes()}:
+      ${new Date().getSeconds()}了
+      `
       ,{
         closeButton:{
-          text: '关了',
+          text: '关闭',
           callback(toast){
             toast.log()
           }
