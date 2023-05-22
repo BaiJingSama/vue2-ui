@@ -2,12 +2,12 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-05-08 14:30:42
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-08 20:11:19
+ * @LastEditTime: 2023-05-22 19:56:16
  * @Description: toast组件
 -->
 
 <template>
-  <div class="toast" ref="wrapper">
+  <div class="toast" ref="wrapper" :class="toastClass">
     <div class="message">
       <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
@@ -41,6 +41,21 @@ export default {
     enableHtml:{
       type: Boolean,
       default: false
+    },
+    position:{
+      type: String,
+      default: 'top',
+      validator(value){
+        return ['top','middle','bottom'].includes(value)
+      }
+    }
+  },
+  computed:{
+    toastClass(){
+      return {
+        [`position-${this.position}`]:true
+      
+      }  
     }
   },
   mounted() {
@@ -89,7 +104,6 @@ $toast-bg: rgba(0, 0, 0, 0.74);
 .toast {
   /* border:1px solid red; */
   position: fixed;
-  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   font-size: $font-size;
@@ -115,5 +129,18 @@ $toast-bg: rgba(0, 0, 0, 0.74);
     padding-left: 24px;
     flex-shrink: 0;
   }
+
+  &.position-top{
+    top: 5%;
+  }
+  &.position-middle{
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &.position-bottom{
+    bottom: 5%;
+    transform: translate(-50%)
+  }
+
 }
 </style>
