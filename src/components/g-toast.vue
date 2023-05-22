@@ -2,25 +2,26 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-05-08 14:30:42
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-22 21:09:18
+ * @LastEditTime: 2023-05-22 21:46:24
  * @Description: toast组件
 -->
 
 <template>
-  <div class="toast" ref="wrapper" :class="toastClass">
-    <div class="message">
-      <slot v-if="!enableHtml"></slot>
-      <div v-else v-html="$slots.default[0]"></div>
+  <div class="wrapper" :class="toastClass">
+    <div class="toast" ref="wrapper">
+      <div class="message">
+        <slot v-if="!enableHtml"></slot>
+        <div v-else v-html="$slots.default[0]"></div>
+      </div>
+      <div class="line" v-if="closeButton.text" ref="line"></div>
+      <span class="close" v-if="closeButton.text" @click="onClickClose">
+        {{ closeButton.text }}
+      </span>
     </div>
-    <div class="line" v-if="closeButton.text" ref="line"></div>
-    <span class="close" v-if="closeButton.text" @click="onClickClose">
-      {{ closeButton.text }}
-    </span>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "g-toast",
   props: {
@@ -30,7 +31,7 @@ export default {
     },
     autoCloseDelay: {
       type: Number,
-      default: 50,
+      default: 3,
     },
     closeButton: {
       type: Object,
@@ -38,29 +39,28 @@ export default {
         return {};
       },
     },
-    enableHtml:{
+    enableHtml: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    position:{
+    position: {
       type: String,
-      default: 'top',
-      validator(value){
-        return ['top','middle','bottom'].includes(value)
-      }
-    }
+      default: "top",
+      validator(value) {
+        return ["top", "middle", "bottom"].includes(value);
+      },
+    },
   },
-  computed:{
-    toastClass(){
+  computed: {
+    toastClass() {
       return {
-        [`position-${this.position}`]:true
-      
-      }  
-    }
+        [`position-${this.position}`]: true,
+      };
+    },
   },
   mounted() {
-    this.updateStyles()
-    this.execAutoClose()
+    this.updateStyles();
+    this.execAutoClose();
   },
   methods: {
     execAutoClose() {
@@ -70,18 +70,19 @@ export default {
         }, this.autoCloseDelay * 1000);
       }
     },
-    updateStyles(){
-      if(this.closeButton && this.closeButton.text){
+    updateStyles() {
+      if (this.closeButton && this.closeButton.text) {
         console.log(this.closeButton);
-        this.$nextTick(()=>{
-        this.$refs.line.style.height = 
-          `${this.$refs.wrapper.getBoundingClientRect().height}px`
-      })
+        this.$nextTick(() => {
+          this.$refs.line.style.height = `${
+            this.$refs.wrapper.getBoundingClientRect().height
+          }px`;
+        });
       }
     },
     close() {
       this.$el.remove();
-      this.$emit('close')
+      this.$emit("close");
       this.$destroy();
     },
     log() {
@@ -102,17 +103,67 @@ $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.74);
 
-@keyframes fade-in{
-  0%{opacity: 0; transform: translateX(100%);}
-  100%{opacity: 1; transform: translateX(0%)}
+@keyframes top-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes middle-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bottom-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.wrapper{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &.position-top {
+    top: 5%;
+    .toast{
+      animation: top-in 300ms;
+    }
+  }
+  &.position-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .toast{
+      animation: middle-in 300ms;
+    }
+  }
+  &.position-bottom {
+    bottom: 5%;
+    transform: translate(-50%);
+    .toast{
+      animation: bottom-in 300ms;
+    }
+  }
 }
 
 .toast {
   animation: fade-in 1s;
   /* border:1px solid red; */
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: $font-size;
   line-height: 1.8;
   min-height: $toast-min-height;
@@ -123,9 +174,9 @@ $toast-bg: rgba(0, 0, 0, 0.74);
   border-radius: 4px;
   padding: 0 24px;
   color: #fff;
-  
-  .message{
-    padding: 8px 0
+
+  .message {
+    padding: 8px 0;
   }
   .line {
     height: 100%;
@@ -135,18 +186,6 @@ $toast-bg: rgba(0, 0, 0, 0.74);
   .close {
     padding-left: 24px;
     flex-shrink: 0;
-  }
-
-  &.position-top{
-    top: 5%;
-  }
-  &.position-middle{
-    top: 50%;
-    transform: translate(-50%,-50%);
-  }
-  &.position-bottom{
-    bottom: 5%;
-    transform: translate(-50%)
   }
 
 }

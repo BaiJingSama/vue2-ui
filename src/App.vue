@@ -2,14 +2,16 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-22 20:43:07
+ * @LastEditTime: 2023-05-22 21:32:09
  * @Description: 
 -->
 <template>
   <div id="app">
 
   <div class="box">
-    <Button @click="showToast">出现toast</Button>
+    <Button @click="getToast1">top</Button>
+    <Button @click="getToast2">middle</Button>
+    <Button @click="getToast3">bottom</Button>
   </div>
 <!--     <div class="box">
       <g-layout style="height: 60vh">
@@ -107,7 +109,16 @@ export default {
     inputChange(e) {
       console.log(e.target.value);
     },
-    showToast(){
+    getToast1(){
+      this.showToast('top')
+    },
+    getToast2(){
+      this.showToast('middle')
+    },
+    getToast3(){
+      this.showToast('bottom')
+    },
+    showToast(position){
       this.$toast(`该睡觉了，现在已经
       ${new Date().getFullYear()}年
       ${new Date().getMonth()+1}月
@@ -125,7 +136,7 @@ export default {
         },
         autoClose: true,
         // autoCloseDelay: 3,
-        position: 'bottom'
+        position
       }
       )
     }
