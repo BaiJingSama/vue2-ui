@@ -2,19 +2,19 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-29 20:54:30
+ * @LastEditTime: 2023-05-29 21:18:04
  * @Description: 
 -->
 <template>
   <div id="app">
     <div class="box">
-      <g-tabs :selected.sync="selectedTab" direction="">
+      <g-tabs :selected.sync="selectedTab">
         <g-tabs-nav>
           <template slot="actions">
             <Button>click me</Button>
           </template>
           <g-tabs-item name="consoleGame" disabled>
-            <g-icon name="settings"></g-icon>单机热游
+            <Icon name="settings"></Icon>单机热游
           </g-tabs-item>
           <g-tabs-item name="networkGame">网络游戏</g-tabs-item>
           <g-tabs-item name="leisureGames">休闲游戏</g-tabs-item>
