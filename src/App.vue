@@ -2,18 +2,56 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-22 21:32:09
+ * @LastEditTime: 2023-05-29 20:54:30
  * @Description: 
 -->
 <template>
   <div id="app">
+    <div class="box">
+      <g-tabs :selected.sync="selectedTab" direction="">
+        <g-tabs-nav>
+          <template slot="actions">
+            <Button>click me</Button>
+          </template>
+          <g-tabs-item name="consoleGame" disabled>
+            <g-icon name="settings"></g-icon>单机热游
+          </g-tabs-item>
+          <g-tabs-item name="networkGame">网络游戏</g-tabs-item>
+          <g-tabs-item name="leisureGames">休闲游戏</g-tabs-item>
+        </g-tabs-nav>
+        <g-tabs-content>
+          <g-tabs-pane name="consoleGame">
+            <ul>
+              <li>单机游戏1</li>
+              <li>单机游戏2</li>
+              <li>单机游戏3</li>
+            </ul>
+          </g-tabs-pane>
+          <g-tabs-pane name="networkGame">
+            <ul>
+              <li>网络游戏1</li>
+              <li>网络游戏2</li>
+              <li>网络游戏3</li>
+            </ul>
+          </g-tabs-pane>
+          <g-tabs-pane name="leisureGames">
+            <ul>
+              <li>休闲游戏1</li>
+              <li>休闲游戏2</li>
+              <li>休闲游戏3</li>
+            </ul>
+          </g-tabs-pane>
+        </g-tabs-content>
+      </g-tabs>
+    </div>
 
-  <div class="box">
-    <Button @click="getToast1">top</Button>
-    <Button @click="getToast2">middle</Button>
-    <Button @click="getToast3">bottom</Button>
-  </div>
-<!--     <div class="box">
+  <!-- 
+    <div class="box">
+        <Button @click="getToast1">top</Button>
+        <Button @click="getToast2">middle</Button>
+        <Button @click="getToast3">bottom</Button>
+    </div>
+    <div class="box">
       <g-layout style="height: 60vh">
         <g-sider class="sider"></g-sider>
         <g-layout>
@@ -98,6 +136,7 @@ export default {
       icons: ["settings"],
       loading: false,
       message: "hi",
+      selectedTab: 'networkGame'
     };
   },
   methods: {
