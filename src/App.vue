@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-29 21:18:04
+ * @LastEditTime: 2023-05-31 20:51:08
  * @Description: 
 -->
 <template>
@@ -10,14 +10,14 @@
     <div class="box">
       <g-tabs :selected.sync="selectedTab">
         <g-tabs-nav>
-          <template slot="actions">
-            <Button>click me</Button>
-          </template>
           <g-tabs-item name="consoleGame" disabled>
             <Icon name="settings"></Icon>单机热游
           </g-tabs-item>
           <g-tabs-item name="networkGame">网络游戏</g-tabs-item>
           <g-tabs-item name="leisureGames">休闲游戏</g-tabs-item>
+          <template slot="actions">
+            <Button>click me</Button>
+          </template>
         </g-tabs-nav>
         <g-tabs-content>
           <g-tabs-pane name="consoleGame">

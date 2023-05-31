@@ -1,10 +1,11 @@
 <template>
-  <div class="tab-item" @click="abc">
+  <div class="tab-item" @click="abc" :class="classes">
     <slot></slot>
   </div>
 </template>
 
 <script>
+
   export default {
     name: 'g-tabs-item',
     props:{
@@ -18,10 +19,22 @@
         default: ''
       }
     },
+    computed:{
+      classes(){
+        return {
+          active: this.active
+        }
+      }
+    },  
+    data() {
+      return {
+        active: false
+      }
+    },
     inject: ['eventBus'],
     created(){
       this.eventBus.$on('update:selected',(name)=>{
-        console.log(name);
+        this.active = this.name === name
       })
     },
     methods:{
@@ -33,7 +46,11 @@
 </script>
 
 <style lang="scss" scoped>
-.tab-item{
-
+  .tab-item{
+    flex-shrink: 0;
+    padding: 0 2em;
+    &.active{
+      background: skyblue
+    }
 }
 </style>
