@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-item" @click="abc" :class="classes">
+  <div class="tab-item" @click="itemChange" :class="classes">
     <slot></slot>
   </div>
 </template>
@@ -38,7 +38,7 @@
       })
     },
     methods:{
-      abc(){
+      itemChange(){
         this.eventBus.$emit('update:selected',this.name)
       }
     }
@@ -47,8 +47,12 @@
 
 <style lang="scss" scoped>
   .tab-item{
+    display: flex;
     flex-shrink: 0;
     padding: 0 2em;
+    cursor: pointer;
+    height: 100%;
+    align-items: center;
     &.active{
       background: skyblue
     }
