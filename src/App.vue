@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-31 20:51:08
+ * @LastEditTime: 2023-06-06 19:37:31
  * @Description: 
 -->
 <template>
@@ -192,8 +192,6 @@ body {
 }
 
 #app {
-  margin-top: 20px;
-  margin-left: 20px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -207,7 +205,7 @@ body {
 }
 
 .box {
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 /* .layout{
