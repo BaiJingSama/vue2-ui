@@ -2,12 +2,22 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-06-06 19:37:31
+ * @LastEditTime: 2023-06-13 22:47:12
  * @Description: 
 -->
 <template>
   <div id="app">
-    <div class="box">
+
+    <div class="box" style="padding-top:100px; padding-left:100px">
+      <g-popover>
+        <template slot="content">
+          <div>popover</div>
+        </template>
+      <button>点我</button>
+      </g-popover>
+    </div>
+
+  <!-- <div class="box">
       <g-tabs :selected.sync="selectedTab">
         <g-tabs-nav>
           <g-tabs-item name="consoleGame" disabled>
@@ -37,13 +47,13 @@
           <g-tabs-pane name="leisureGames">
             <ul>
               <li>休闲游戏1</li>
-              <li>休闲游戏2</li>
-              <li>休闲游戏3</li>
+                <li>休闲游戏2</li>
+                <li>休闲游戏3</li>
             </ul>
           </g-tabs-pane>
         </g-tabs-content>
       </g-tabs>
-    </div>
+    </div> -->
 
   <!-- 
     <div class="box">
@@ -117,13 +127,13 @@
         :iconPosition="'left'"
         @click="loading = !loading"
         >我是button
-      </Button>
-      <Button-group class="margin-left">
-        <Button icon="left">上一页</Button>
-        <Button>更多</Button>
-        <Button icon="right">下一页</Button>
-      </Button-group>
-    </div> -->
+        </Button>
+        <Button-group class="margin-left">
+          <Button icon="left">上一页</Button>
+          <Button>更多</Button>
+          <Button icon="right">下一页</Button>
+        </Button-group>
+      </div> -->
 
   </div>
 </template>
@@ -148,35 +158,35 @@ export default {
     inputChange(e) {
       console.log(e.target.value);
     },
-    getToast1(){
+    getToast1() {
       this.showToast('top')
     },
-    getToast2(){
+    getToast2() {
       this.showToast('middle')
     },
-    getToast3(){
+    getToast3() {
       this.showToast('bottom')
     },
-    showToast(position){
+    showToast(position) {
       this.$toast(`该睡觉了，现在已经
       ${new Date().getFullYear()}年
-      ${new Date().getMonth()+1}月
+      ${new Date().getMonth() + 1}月
       ${new Date().getDate()}日
       ${new Date().getHours()}:
       ${new Date().getMinutes()}:
       ${new Date().getSeconds()}了
       `
-      ,{
-        closeButton:{
-          text: '关闭',
-          callback(toast){
-            toast.log()
-          }
-        },
-        autoClose: true,
-        // autoCloseDelay: 3,
-        position
-      }
+        , {
+          closeButton: {
+            text: '关闭',
+            callback(toast) {
+              toast.log()
+            }
+          },
+          autoClose: true,
+          // autoCloseDelay: 3,
+          position
+        }
       )
     }
   },

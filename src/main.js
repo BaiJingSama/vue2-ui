@@ -30,6 +30,7 @@ import TabsNav from './components/g-tabs-nav.vue'
 import TabsContent from './components/g-tabs-content.vue'
 import TabsItem from './components/g-tabs-item.vue'
 import TabsPane from './components/g-tabs-pane.vue'
+import Popover from './components/g-popover.vue'
 
 Vue.component('Button', Button)
 Vue.component('Icon', Icon);
@@ -48,7 +49,7 @@ Vue.component('g-tabs-nav',TabsNav)
 Vue.component('g-tabs-content',TabsContent)
 Vue.component('g-tabs-item',TabsItem)
 Vue.component('g-tabs-pane',TabsPane)
-
+Vue.component('g-popover',Popover)
 
 Vue.config.productionTip = false
 
