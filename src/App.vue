@@ -2,14 +2,14 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-06-13 22:47:12
+ * @LastEditTime: 2023-06-14 20:41:44
  * @Description: 
 -->
 <template>
   <div id="app">
 
-    <div class="box" style="padding-top:100px; padding-left:100px">
-      <g-popover>
+    <div class="box" style="padding-top:100px; padding-left:100px;">
+      <g-popover style="border:1px solid red;overflow:hidden">
         <template slot="content">
           <div>popover</div>
         </template>
