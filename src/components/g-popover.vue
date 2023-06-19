@@ -1,6 +1,6 @@
 <template>
-  <div class="popover" @click.stop="xxx">
-    <div ref="contentWrapper" class="content-wrapper" v-if="visible" @click.stop>
+  <div class="popover" @click="onClick" ref="popover">
+    <div ref="contentWrapper" class="content-wrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
     <span ref="triggerWrapper">
@@ -18,23 +18,41 @@ export default {
     }
   },
   methods: {
-    xxx() {
-      console.log('改变了visible');
-      this.visible = !this.visible
-      if (this.visible) {
-        setTimeout(() => {
-          document.body.appendChild(this.$refs.contentWrapper)
-          let {top,left} = this.$refs.triggerWrapper.getBoundingClientRect()
-          this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-          this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
-          let clickHandle = ()=>{
-            this.visible = false
-            document.removeEventListener('click', clickHandle)
-            console.log('删除了监听器');
-          }
-          console.log('新增了监听器');
-          document.addEventListener('click', clickHandle)
-        })  
+    positionContent(){
+      document.body.appendChild(this.$refs.contentWrapper)
+      let { top, left } = this.$refs.triggerWrapper.getBoundingClientRect()
+      this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+      this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+    },
+    clickHandle (e) {
+      if (!this.$refs.contentWrapper || !this.$refs.contentWrapper.contains(e.target)) {
+        this.close()
+      }
+    },
+    listenToDocument(){
+      console.log('监听了document');
+      document.addEventListener('click', this.clickHandle)
+    },
+    open(){
+      this.visible = true
+      setTimeout(() => {
+        this.positionContent()
+        this.listenToDocument()
+      })
+    },
+    close(){
+      this.visible = false
+      document.removeEventListener('click', this.clickHandle)
+    },
+    onClick(event) {
+      console.log(event.target);
+      if(this.$refs.triggerWrapper.contains(event.target)){
+        this.visible = !this.visible
+         if (this.visible) {
+          this.open()
+        }else{
+          this.close()
+        }
       }
     }
   }
