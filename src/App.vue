@@ -2,15 +2,36 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-06-28 21:10:13
+ * @LastEditTime: 2023-06-29 00:08:51
  * @Description: 
 -->
 <template>
   <div id="app">
 
     <div class="box" style="padding-top:100px; padding-left:100px;overflow:hidden">
-      <g-popover>
+      <g-popover position="top" class="g-popover">
         <template slot="content">
+          <div>我是popover</div>
+        </template>
+      <Button>点我</Button>
+      </g-popover>
+      
+      <g-popover position="bottom" class="g-popover">
+          <template slot="content">
+          <div>我是popover</div>
+        </template>
+      <Button>点我</Button>
+      </g-popover>
+
+      <g-popover position="left" class="g-popover">
+          <template slot="content">
+          <div>我是popover</div>
+        </template>
+      <Button>点我</Button>
+      </g-popover>
+
+      <g-popover position="right" class="g-popover">
+          <template slot="content">
           <div>我是popover</div>
         </template>
       <Button>点我</Button>
@@ -216,6 +237,9 @@ body {
 
 .box {
   /* margin: 20px; */
+  > .g-popover{
+    margin-right: 10px;
+  }
 }
 
 /* .layout{
