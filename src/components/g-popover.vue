@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]:true}">
       <slot name="content"></slot>
     </div>
@@ -24,6 +24,29 @@ export default {
       validator(value){
         return ['top','bottom','left','right'].indexOf(value) >= 0
       }
+    },
+    trigger:{
+      type: String,
+      default: 'click',
+      validator(val){
+        return ['hover','click'].indexOf(val) >= 0
+      }
+    }
+  },
+  mounted(){
+    if(this.trigger === 'click'){
+      this.$refs.popover.addEventListener('click',this.onClick)
+    }else{
+      this.$refs.popover.addEventListener('mouseenter', this.open)
+      this.$refs.popover.addEventListener('mouseleave', this.close)
+    }
+  },
+  destroyed(){
+    if (this.trigger === 'click') {
+      this.$refs.popover.removeEventListener('click', this.onClick)
+    } else {
+      this.$refs.popover.removeEventListener('mouseenter', this.open)
+      this.$refs.popover.removeEventListener('mouseleave', this.close)
     }
   },
   methods: {
@@ -31,7 +54,7 @@ export default {
       document.body.appendChild(this.$refs.contentWrapper)
       const {contentWrapper,triggerWrapper} = this.$refs
       let { top, left, width, height} = triggerWrapper.getBoundingClientRect()
-      console.log(height);
+      // console.log(height);
       if(this.position === 'top'){
         contentWrapper.style.left = left + window.scrollX + 'px'
         contentWrapper.style.top = top + window.scrollY + 'px' 
@@ -55,7 +78,7 @@ export default {
       }
     },
     listenToDocument(){
-      console.log('监听了document');
+      // console.log('监听了document');
       document.addEventListener('click', this.clickHandle)
     },
     open(){
@@ -70,7 +93,7 @@ export default {
       document.removeEventListener('click', this.clickHandle)
     },
     onClick(event) {
-      console.log(event.target);
+      // console.log(event.target);
       if(this.$refs.triggerWrapper.contains(event.target)){
         this.visible = !this.visible
          if (this.visible) {

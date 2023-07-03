@@ -38,6 +38,36 @@
       </g-popover>
     </div>
 
+    <div class="box" style="padding-top:100px; padding-left:100px;overflow:hidden">
+        <g-popover position="top" class="g-popover" trigger="hover">
+          <template slot="content">
+            <div>我是hover的popover我是hover的popover我是hover的popover我是hover的popover我是hover的popover</div>
+          </template>
+        <Button>点我</Button>
+        </g-popover>
+      
+        <g-popover position="bottom" class="g-popover" trigger="hover">
+            <template slot="content">
+            <div>我是hover的popover</div>
+          </template>
+        <Button>点我</Button>
+        </g-popover>
+
+        <g-popover position="left" class="g-popover" trigger="hover">
+            <template slot="content">
+            <div>我是hover的popover</div>
+          </template>
+        <Button>点我</Button>
+        </g-popover>
+
+        <g-popover position="right" class="g-popover" trigger="hover">
+            <template slot="content">
+          <div>我是hover的popover</div>
+        </template>
+      <Button>点我</Button>
+      </g-popover>
+    </div>
+
   <!-- <div class="box">
       <g-tabs :selected.sync="selectedTab">
         <g-tabs-nav>
