@@ -2,7 +2,7 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-05-29 20:12:18
+ * @LastEditTime: 2023-07-13 20:05:16
  * @Description: 入口文件
  */
 import Vue from 'vue'
@@ -31,6 +31,8 @@ import TabsContent from './components/g-tabs-content.vue'
 import TabsItem from './components/g-tabs-item.vue'
 import TabsPane from './components/g-tabs-pane.vue'
 import Popover from './components/g-popover.vue'
+import Collapse from './components/g-collapse.vue'
+import CollapseItem from './components/g-collapse-item.vue'
 
 Vue.component('Button', Button)
 Vue.component('Icon', Icon);
@@ -50,6 +52,8 @@ Vue.component('g-tabs-content',TabsContent)
 Vue.component('g-tabs-item',TabsItem)
 Vue.component('g-tabs-pane',TabsPane)
 Vue.component('g-popover',Popover)
+Vue.component('g-collapse',Collapse)
+Vue.component('g-collapse-item',CollapseItem)
 
 Vue.config.productionTip = false
 

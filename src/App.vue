@@ -2,13 +2,21 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-07-10 20:39:40
+ * @LastEditTime: 2023-07-13 20:08:30
  * @Description: 
 -->
 <template>
   <div id="app">
+    <div class="box" style="padding-top: 100px;padding-left:100px">
+      <g-collapse>
+        <g-collapse-item title="标题1">内容1</g-collapse-item>
+        <g-collapse-item title="标题2">内容2</g-collapse-item>
+        <g-collapse-item title="标题3">内容3</g-collapse-item>
+      </g-collapse>
+    </div>
 
-    <div class="box" style="padding-top:100px; padding-left:100px;overflow:hidden">
+
+    <!-- <div class="box" style="padding-top:100px; padding-left:100px;overflow:hidden">
       <g-popover position="top" class="g-popover">
         <template slot="content" slot-scope="{close}">
           <div>我是popover
@@ -38,9 +46,9 @@
         </template>
       <Button>点我</Button>
       </g-popover>
-    </div>
+    </div> -->
 
-    <div class="box" style="padding-top:100px; padding-left:100px;overflow:hidden">
+    <!-- <div class="box" style="padding-top:100px; padding-left:100px;overflow:hidden">
         <g-popover position="top" class="g-popover" trigger="hover">
           <template slot="content">
             <div>我是hover的popover我是hover的popover我是hover的popover我是hover的popover我是hover的popover</div>
@@ -68,7 +76,7 @@
         </template>
       <Button>点我</Button>
       </g-popover>
-    </div>
+    </div> -->
 
     <!-- <tomorrow-ark class="ark"/> -->
 
