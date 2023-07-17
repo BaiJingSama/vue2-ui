@@ -2,13 +2,13 @@
  * @Author: baijingsama 1303802862@qq.com
  * @Date: 2023-03-24 00:05:51
  * @LastEditors: baijingsama 1303802862@qq.com
- * @LastEditTime: 2023-07-17 19:33:24
+ * @LastEditTime: 2023-07-17 20:08:13
  * @Description: 
 -->
 <template>
   <div id="app">
     <div class="box" style="padding-top: 100px;padding-left:100px">
-      <g-collapse :selected.sync="selected">
+      <g-collapse :selected.sync="selected" single>
         <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
         <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
         <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
@@ -216,7 +216,7 @@ export default {
       loading: false,
       message: "hi",
       selectedTab: 'networkGame',
-      selected: '1'
+      selected: ['1']
     };
   },
   methods: {
