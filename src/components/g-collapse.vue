@@ -16,11 +16,18 @@ import Vue from 'vue'
       single: {
         type: Boolean,
         default: false
+      },
+      selected: {
+        type: String
       }
     },
     mounted(){
-      console.log(this.eventBus);
+      this.eventBus.$emit('update:selected',this.selected)
+      this.eventBus.$on('update:selected',(name) => {
+        this.$emit('update:selected', name)
+      })
     },
+
     provide(){
       return {
         eventBus: this.eventBus
